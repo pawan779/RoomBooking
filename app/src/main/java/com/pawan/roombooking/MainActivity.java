@@ -61,6 +61,18 @@ public class MainActivity extends AppCompatActivity {
         btnCal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(TextUtils.isEmpty(chDate.getText()))
+                {
+                    chDate.setError("Please enter Check in Date");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(choDate.getText()))
+                {
+                    choDate.setError("Please enter Check out Date");
+                    return;
+                }
+
 
                 if (sRoom.getSelectedItem()=="Select room type")
                 {
