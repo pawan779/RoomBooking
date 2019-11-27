@@ -116,14 +116,20 @@ public class MainActivity extends AppCompatActivity {
                 vat = 0.13 * total;
                 GrossTotal = total + vat;
 
-                if (diff<0)
+                if (diff <=0)
                 {
                     chDate.setError("Checkin date is invalid");
                     choDate.setError("Checkout date is invalid");
+                    tvResult.setText("Invalid Date");
                     return;
                 }
+                else
+                {
+                    tvResult.setText("Total: Rs." + total + "\n" + "Vat Rs.:" + vat + "\n" + "Gross Total: Rs." + GrossTotal);
+                }
 
-                tvResult.setText("Total: Rs." + total + "\n" + "Vat Rs.:" + vat + "\n" + "Gross Total: Rs." + GrossTotal);
+
+
 
 
             }
@@ -140,7 +146,9 @@ public class MainActivity extends AppCompatActivity {
         DatePickerDialog datePickerDialog=new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year1, int month, int dayOfMonth1) {
+                month=month+1;
                 String date = "Checking out Date: "+month + "/" + dayOfMonth1 + "/" + year1;
+
                 month3=month;
                 day3=dayOfMonth1;
                 year3=year1;
@@ -161,6 +169,7 @@ public class MainActivity extends AppCompatActivity {
         DatePickerDialog datePickerDialog=new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month=month+1;
                 String date = "Checking Date: "+month + "/" + dayOfMonth + "/" + year;
                 month2=month;
                 day2=dayOfMonth;
